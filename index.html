@@ -8,8 +8,30 @@
     <title>Document</title>
   </head>
   <body>
-    <img src="./images/logoGame.png" alt="logo" style="width: 60%" class="logo" />
-    <canvas id="canvas" width="1040" height="640"></canvas>
+    <div id="portada">
+      <div class="imgPortada">
+        <img src="./images/portadagame.jpg" alt="portad" />
+      </div>
+      <img src="./images/logoGame.png" alt="logo" style="width: 30%" class="logo" />
+      <img src="./images/btn-start.png" alt="btnstart" width="15%" class="btn-start" />
+    </div>
+
+    <div id="game-screen">
+      <div>
+        <img src="./images/logoGame.png" alt="logo" style="width: 80%" class="logo2" style="display: none" />
+      </div>
+      <div class="scoreDiv">
+        <img src="./images/beer.png" alt="beer" class="beer" style="height: 7vh" class="player1" />
+        <p class="score">Ironbeers: 0</p>
+        <img src="./images/beer.png" alt="beer" class="beer2" style="height: 7vh" id="player2" />
+        <p class="score2" id="player 2">Ironbeers: 0</p>
+        <img src="./images/beer.png" alt="beer" class="beer3" style="height: 7vh" id="player3" />
+        <p class="score3" id="player 3">Ironbeers: 0</p>
+      </div>
+      <canvas id="canvas" width="900" height="554"></canvas>
+      <p id="instruccionesMov">Usa las teclas WASD, UHJK y las flechas para desplazarte</p>
+      <p id="instruccionesGanar">Recoge tantas preguntas como puedas para ganar IRONBEERS</p>
+    </div>
     <script src="./main.js"></script>
   </body>
 </html>
