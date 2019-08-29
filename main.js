@@ -7,6 +7,8 @@ const background = document.querySelector('#game-screen')
 const scoreIndex = document.querySelector('.score')
 const scoreIndex2 = document.querySelector('.score2')
 const scoreIndex3 = document.querySelector('.score3')
+const music1 = document.querySelector('#musica1')
+const music2 = document.querySelector('#musica2')
 const ctx = canvas.getContext('2d')
 let frames = 0
 let interval
@@ -165,7 +167,7 @@ const board = new Board()
 const taone = new taOne(10, 475)
 const tatwo = new taTwo(10, 390)
 const tathree = new taThree(10, 300)
-
+/*
 function generateDoubts() {
   if (frames % 150 === 0) {
     let x = canvas.width
@@ -176,7 +178,100 @@ function generateDoubts() {
     dudas.push(new Dudas(randomX, randomY))
   }
 }
+*/
 
+function generateDoubts() {
+  if (frames % 150 === 0) {
+    let positionX = ''
+    let positionY = ''
+    position = Math.round(Math.random() * 19 + 1)
+
+    switch (position) {
+      case 1:
+        positionX = 800
+        positionY = 30
+        break
+      case 2:
+        positionX = 800
+        positionY = 120
+        break
+      case 3:
+        positionX = 800
+        positionY = 214
+        break
+      case 4:
+        positionX = 800
+        positionY = 390
+        break
+      case 5:
+        positionX = 800
+        positionY = 480
+        break
+      case 6:
+        positionX = 600
+        positionY = 30
+        break
+      case 7:
+        positionX = 600
+        positionY = 120
+        break
+      case 8:
+        positionX = 600
+        positionY = 214
+        break
+      case 9:
+        positionX = 600
+        positionY = 390
+        break
+      case 10:
+        positionX = 600
+        positionY = 480
+        break
+      case 11:
+        positionX = 400
+        positionY = 30
+        break
+      case 12:
+        positionX = 400
+        positionY = 120
+        break
+      case 13:
+        positionX = 400
+        positionY = 214
+        break
+      case 14:
+        positionX = 400
+        positionY = 390
+        break
+      case 15:
+        positionX = 400
+        positionY = 480
+        break
+      case 16:
+        positionX = 190
+        positionY = 30
+        break
+      case 17:
+        positionX = 190
+        positionY = 120
+        break
+      case 18:
+        positionX = 190
+        positionY = 214
+        break
+      case 19:
+        positionX = 190
+        positionY = 390
+        break
+      case 20:
+        positionX = 190
+        positionY = 480
+        break
+      case 20:
+    }
+    dudas.push(new Dudas(positionX, positionY))
+  }
+}
 function drawDudas() {
   dudas.forEach(duda => {
     duda.alive = true
@@ -207,28 +302,34 @@ function ironbeers() {
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = 'white'
     ctx.font = '40px Gill Sans'
-    ctx.fillText(`1 You got ${score} Ironbeers`, 300, 250)
+    ctx.fillText(`Player 1 Win!! You got ${score} Ironbeers`, 300, 250)
     ctx.font = '30px Gill Sans'
     ctx.fillStyle = 'white'
     ctx.fillText('Press R to restart the game', 300, 300)
+    music1.pause()
+    music2.play()
   } else if (score2 >= 10) {
     ctx.fillStyle = 'rgb(36, 63, 114)'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = 'white'
     ctx.font = '40px Gill Sans'
-    ctx.fillText(`2 You got ${score2} Ironbeers`, 300, 250)
+    ctx.fillText(`Player 2 Win!! You got ${score2} Ironbeers`, 300, 250)
     ctx.font = '30px Gill Sans'
     ctx.fillStyle = 'white'
     ctx.fillText('Press R to restart the game', 300, 300)
+    music1.pause()
+    music2.play()
   } else if (score3 >= 10) {
     ctx.fillStyle = 'rgb(36, 63, 114)'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = 'white'
     ctx.font = '40px Gill Sans'
-    ctx.fillText(`3 You got ${score3} Ironbeers`, 300, 250)
+    ctx.fillText(`Player 3 Win!! You got ${score3} Ironbeers`, 300, 250)
     ctx.font = '30px Gill Sans'
     ctx.fillStyle = 'white'
     ctx.fillText('Press R to restart the game', 300, 300)
+    music1.pause()
+    music2.play()
   }
 }
 /*function getIronbeers() {
@@ -244,10 +345,15 @@ function drawScore() {
   ctx.fillText = (`Ironbeers: ${score}`, 500, 50)
 }
 */
+
+function bgmusic() {
+  music1.play()
+}
 function start() {
   portada.style.display = 'none'
   background.style.display = ''
   interval = setInterval(update, 1000 / 60)
+  bgmusic()
 }
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
