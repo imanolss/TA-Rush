@@ -50,7 +50,7 @@ class taOne {
     this.width = 45
     this.height = 75
     this.img = new Image()
-    this.img.src = './images/TaMentest.png'
+    this.img.src = './images/bichoLateral.png'
   }
   draw() {
     ctx.drawImage(this.img, this.x, this.y, this.width, this.height)
@@ -84,7 +84,7 @@ class taTwo {
     this.width = 40
     this.height = 80
     this.img = new Image()
-    this.img.src = './images/TaWomantest.png'
+    this.img.src = './images/marianaLateral.png'
   }
   draw() {
     this.y
@@ -120,7 +120,7 @@ class taThree {
     this.width = 40
     this.height = 80
     this.img = new Image()
-    this.img.src = './images/TaWomantest.png'
+    this.img.src = './images/isaLateral2.png'
   }
   draw() {
     this.y
@@ -348,6 +348,7 @@ function drawScore() {
 
 function bgmusic() {
   music1.play()
+  music1.volume = 0.2
 }
 function start() {
   portada.style.display = 'none'
